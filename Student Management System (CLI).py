@@ -1,6 +1,17 @@
 
 import  time
 
+id = 1000
+name = ""
+age = 0
+gender = ""
+phone = 0
+email = ""
+branch = ""
+course = ""
+student_record = []
+
+
 def student_name():
     while True:
         name = input("\nEnter Student Name: ")
@@ -10,7 +21,7 @@ def student_name():
         elif name.replace(" ", "").isalpha() == False:
             print("Student Name cannot contain numbers or special characters")
         else:
-            break
+            return name
 
 def student_age():
     while True:
@@ -21,7 +32,7 @@ def student_age():
         elif int(age) < 16 or int(age) > 22:
             print("Student Age must be between 17 and 22")
         else:
-            break
+            return age
 
 def student_gender():
     while True:
@@ -34,7 +45,7 @@ def student_gender():
         elif gender != "M" and gender != "F":
             print("Invalid Gender")
         else:
-            break
+            return gender
 
 def student_phone():
     while True:
@@ -43,7 +54,7 @@ def student_phone():
         if phone.isdigit() == False and len(phone) == 10:
             print("Invalid Phone number")
         else:
-            break
+            return phone
 
 def student_email():
     while True:
@@ -54,7 +65,7 @@ def student_email():
         elif "@gmail.com" not in email or " " in email:
             print("Invalid Student email")
         else:
-            break
+            return email
 
 def student_course():
     while True:
@@ -67,7 +78,7 @@ def student_course():
         elif course not in ["BTECH", "BCA", "BBA", ]:
             print("Invalid course")
         else:
-            break
+            return course
 
 def student_branch():
     while True:
@@ -80,18 +91,7 @@ def student_branch():
         elif branch not in ["CSE", "ECE", "IT", ]:
             print("Invalid branch")
         else:
-            break
-
-id = 1000
-name = ""
-age = 0
-gender = ""
-phone = 0
-email = ""
-branch = ""
-course = ""
-student_record = []
-
+            return branch
 
 while True:
     time.sleep(2)
@@ -113,13 +113,13 @@ while True:
 # ========== ADD STUDENT ==========
     if choice == 1:
 
-        student_name()
-        student_age()
-        student_gender()
-        student_phone()
-        student_email()
-        student_course()
-        student_branch()
+        name = student_name()
+        age = student_age()
+        gender = student_gender()
+        phone = student_phone()
+        email = student_email()
+        course = student_course()
+        branch = student_branch()
 
         id = id + 1
         student_info = {"id": id,
@@ -135,7 +135,7 @@ while True:
 
 
 # ========== VIEW ALL STUDENT ==========
-    elif choice == 2:
+    elif choice == 2: #value assign nhi hori
         for i in student_record:
             print(f"\nID: {i.get('id')}" , f"Name: {i.get('name')}" , f"Age: {i.get('age')}" , f"Gender: {i.get('gender')}" , f"Phone Number: {i.get('phone')}" , f"Email: {i.get('email')}" , f"Course: {i.get('course')}" , f"Branch: {i.get('branch')}" , sep = "\n")
 
@@ -178,34 +178,34 @@ while True:
             for i in student_record: # no output
                 if i.get("id") == id:
                     print("1. Name", "2. Age", "3. Gender", "4. Phone Number", "5. Email", "6. Course", "7. Branch", sep="\n")
-                    update = input("Enter the choice to update (1-7): ")
+                    update_choice = input("Enter the choice to update (1-7): ")
 
-                    if update.isdigit() == False or int(update) not in range(1, 8):
+                    if update_choice.isdigit() == False or int(update_choice) not in range(1, 8):
                         print("Choice cannot be empty, any alphabet, special character or outside of range (1-7)")
                     else:
-                        update = int(update)
+                        update_choice = int(update_choice)
 
-                    if update == 1:
-                        student_name()
-                        i.update(name)
-                    elif update == 2:
-                        student_age()
-                        i.update(age)
-                    elif update == 3:
-                        student_gender()
-                        i.update(gender)
-                    elif update == 4:
-                        student_phone()
-                        i.update(phone)
-                    elif update == 5:
-                        student_email()
-                        i.update(email)
-                    elif update == 6:
-                        student_course()
-                        i.update(course)
-                    elif update == 7:
-                        student_branch()
-                        i.update(branch)
+                    if update_choice == 1:
+                        name = student_name()
+                        i.update({"name": name})
+                    elif update_choice == 2:
+                        age = student_age()
+                        i.update({"age": age})
+                    elif update_choice == 3:
+                        gender = student_gender()
+                        i.update({"gender": gender})
+                    elif update_choice == 4:
+                        phone = student_phone()
+                        i.update({"phone": phone})
+                    elif update_choice == 5:
+                        email = student_email()
+                        i.update({"email": email})
+                    elif update_choice == 6:
+                        course = student_course()
+                        i.update({"course": course})
+                    elif update_choice == 7:
+                        branch = student_branch()
+                        i.update({"branch": branch})
 
 
 # ========== DELETE STUDENT ==========
