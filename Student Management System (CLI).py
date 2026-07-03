@@ -2,13 +2,6 @@
 import  time
 
 id = 1000
-name = ""
-age = 0
-gender = ""
-phone = 0
-email = ""
-branch = ""
-course = ""
 student_record = []
 
 
@@ -24,12 +17,14 @@ def student_name():
             return name
 
 def student_age():
+    minimum_age = 16
+    maximum_age = 22
     while True:
         age = input("Enter student age : ")
 
         if age.isdigit() == False:
             print("Invalid Age")
-        elif int(age) < 16 or int(age) > 22:
+        elif int(age) < minimum_age or int(age) > maximum_age:
             print("Student Age must be between 17 and 22")
         else:
             return age
@@ -135,7 +130,7 @@ while True:
 
 
 # ========== VIEW ALL STUDENT ==========
-    elif choice == 2: #value assign nhi hori
+    elif choice == 2:
         for i in student_record:
             print(f"\nID: {i.get('id')}" , f"Name: {i.get('name')}" , f"Age: {i.get('age')}" , f"Gender: {i.get('gender')}" , f"Phone Number: {i.get('phone')}" , f"Email: {i.get('email')}" , f"Course: {i.get('course')}" , f"Branch: {i.get('branch')}" , sep = "\n")
 
@@ -153,7 +148,7 @@ while True:
                 if i.get("id") == id:
                     print(f"\nID: {i.get('id')}", f"Name: {i.get('name')}", f"Age: {i.get('age')}", f"Gender: {i.get('gender')}", f"Phone Number: {i.get('phone')}", f"Email: {i.get('email')}", f"Course: {i.get('course')}", f"Branch: {i.get('branch')}", sep="\n")
                 else:
-                    print("Invalid ID")
+                    continue
 
 
 # ========== SEARCH BY NAME ==========
@@ -218,10 +213,10 @@ while True:
             id = int(id)
 
             for i in student_record:
-                if i.get("id") == id: # not working
+                if i.get("id") == id:
                     student_record.remove(i)
                 else:
-                    print("Invalid ID")
+                    continue
 
 
 # ========== DELETE STUDENT ==========
