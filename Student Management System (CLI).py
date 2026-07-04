@@ -29,7 +29,7 @@ def student_age():
         if age.isdigit() == False:
             print("Invalid Age")
         elif int(age) < minimum_age or int(age) > maximum_age:
-            print("Student Age must be between 17 and 22")
+            print("Student Age must be between 16 and 22")
         else:
             return age
 
@@ -137,10 +137,13 @@ while True:
 
 # ========== VIEW ALL STUDENT ==========
     elif choice == 2:
-        for i in student_record:
-            display_student(i)
+        if student_record == []:
+            print("No students found.")
+        else:
+            for i in student_record:
+                display_student(i)
 
-# ========== SEARCH BY ID ==========
+    # ========== SEARCH BY ID ==========
     elif choice == 3:
         id = input("Enter Student ID: ")
 
@@ -148,22 +151,31 @@ while True:
             print("Invalid ID")
         else:
             id = int(id)
+            found = False
 
             for i in student_record:
                 if i.get("id") == id:
                     display_student(i)
+                    found = True
                 else:
                     continue
 
+            if found == False:
+                print("Student not found.")
 
 # ========== SEARCH BY NAME ==========
     elif choice == 4:
         name = input("Enter Student Name: ")
+        found = False
+
         for i in student_record:
             if i.get("name") == name:
                 display_student(i)
             else:
-                print("Invalid Name")
+                continue
+
+        if found == False:
+            print("Student not found.")
 
 
 # ========== UPDATE STUDENT ==========
@@ -207,10 +219,13 @@ while True:
                         branch = student_branch()
                         i.update({"branch": branch})
 
+            print("Student Updated Successfully")
+
 
 # ========== DELETE STUDENT ==========
     elif choice == 6:
         id = input("Enter Student ID: ")
+        found = False
 
         if id.isdigit() == False:
             print("Invalid ID")
@@ -220,11 +235,17 @@ while True:
             for i in student_record:
                 if i.get("id") == id:
                     student_record.remove(i)
+                    found = True
                 else:
                     continue
 
+            if found == False:
+                print("Student not found.")
+            else:
+                print("Student Deleted Successfully")
 
-# ========== DELETE STUDENT ==========
+
+# ========== EXIT ==========
     elif choice == 7:
         print("Exiting the program. Goodbye!")
         break
