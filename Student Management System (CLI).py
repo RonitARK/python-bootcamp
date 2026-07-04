@@ -171,6 +171,7 @@ while True:
         for i in student_record:
             if i.get("name") == name:
                 display_student(i)
+                found = True
             else:
                 continue
 
