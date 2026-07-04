@@ -4,6 +4,10 @@ import  time
 id = 1000
 student_record = []
 
+def display_student(i):
+    print(f"\nID: {i.get('id')}", f"Name: {i.get('name')}", f"Age: {i.get('age')}", f"Gender: {i.get('gender')}",
+          f"Phone Number: {i.get('phone')}", f"Email: {i.get('email')}", f"Course: {i.get('course')}",
+          f"Branch: {i.get('branch')}", sep="\n")
 
 def student_name():
     while True:
@@ -46,7 +50,9 @@ def student_phone():
     while True:
         phone = input("Enter student phone number: ")
 
-        if phone.isdigit() == False and len(phone) == 10:
+        if phone.isdigit() == False:
+            print("Invalid Phone number")
+        elif len(phone) != 10:
             print("Invalid Phone number")
         else:
             return phone
@@ -132,8 +138,7 @@ while True:
 # ========== VIEW ALL STUDENT ==========
     elif choice == 2:
         for i in student_record:
-            print(f"\nID: {i.get('id')}" , f"Name: {i.get('name')}" , f"Age: {i.get('age')}" , f"Gender: {i.get('gender')}" , f"Phone Number: {i.get('phone')}" , f"Email: {i.get('email')}" , f"Course: {i.get('course')}" , f"Branch: {i.get('branch')}" , sep = "\n")
-
+            display_student(i)
 
 # ========== SEARCH BY ID ==========
     elif choice == 3:
@@ -146,7 +151,7 @@ while True:
 
             for i in student_record:
                 if i.get("id") == id:
-                    print(f"\nID: {i.get('id')}", f"Name: {i.get('name')}", f"Age: {i.get('age')}", f"Gender: {i.get('gender')}", f"Phone Number: {i.get('phone')}", f"Email: {i.get('email')}", f"Course: {i.get('course')}", f"Branch: {i.get('branch')}", sep="\n")
+                    display_student(i)
                 else:
                     continue
 
@@ -156,7 +161,7 @@ while True:
         name = input("Enter Student Name: ")
         for i in student_record:
             if i.get("name") == name:
-                print(f"\nID: {i.get('id')}", f"Name: {i.get('name')}", f"Age: {i.get('age')}",  f"Gender: {i.get('gender')}", f"Phone Number: {i.get('phone')}", f"Email: {i.get('email')}", f"Course: {i.get('course')}", f"Branch: {i.get('branch')}", sep="\n")
+                display_student(i)
             else:
                 print("Invalid Name")
 
