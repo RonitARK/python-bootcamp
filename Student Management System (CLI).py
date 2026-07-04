@@ -182,6 +182,7 @@ while True:
 # ========== UPDATE STUDENT ==========
     elif choice == 5:
         id = input("Enter Student ID: ")
+        found = False
 
         if id.isdigit() == False:
             print("Invalid ID")
@@ -220,7 +221,12 @@ while True:
                         branch = student_branch()
                         i.update({"branch": branch})
 
-            print("Student Updated Successfully")
+                    found = True
+
+            if found == False:
+                print("Student not found.")
+            else:
+                print("Student Updated Successfully")
 
 
 # ========== DELETE STUDENT ==========
