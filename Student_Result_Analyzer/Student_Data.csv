@@ -1,8 +1,8 @@
 name,subject,score
 Rahul,Math,85
-Rahul,Python,92
+Rahul,Python,
 Rahul,AI,95
 Aman,Math,72
 Aman,Python,58
 Priya,Math,91
-Priya,Python,88
+,Python,88
