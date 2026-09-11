@@ -1,6 +1,7 @@
+import config
 
 def log_level_summary():
-    with open("Log_Analyzer/log.txt", "r") as file:
+    with open(config.LOG_FILE, "r") as file:
 
         log_dict = {}
 

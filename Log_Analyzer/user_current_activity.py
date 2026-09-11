@@ -1,7 +1,7 @@
-
+import config
 
 def user_current_activity():
-    with open("Log_Analyzer/log.txt", "r") as file:
+    with open(config.LOG_FILE, "r") as file:
 
         user_dict = {}
 

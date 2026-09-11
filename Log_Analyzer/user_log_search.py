@@ -1,7 +1,7 @@
-
+import config
 
 def user_log_search(name):
-    with open("Log_Analyzer/log.txt", "r") as file:
+    with open(config.LOG_FILE, "r") as file:
         log_search = []
         
         for line in file:
