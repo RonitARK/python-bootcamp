@@ -1,0 +1,6 @@
+INFO User Ronit logged in
+INFO User Aman logged in
+INFO User Ronit logged out
+INFO User Priya logged in
+INFO User Aman logged out
+INFO User Ronit logged in
